@@ -1,11 +1,19 @@
+import archiveImage from "../assets/archive.jpg";
+import avangardImage from "../assets/avangard.jpg";
+import representativesImage from "../assets/representatives.jpg";
+
 export type Tab = {
   id: string;
   label: string;
-  color: string;
+  imageSrc: string;
 };
 
 export const TABS: Tab[] = [
-  { id: "avangard", label: "Авангард", color: "bg-accent" },
-  { id: "representatives", label: "Представители", color: "bg-ink/30" },
-  { id: "archive", label: "Архив", color: "bg-ink/20" },
+  { id: "avangard", label: "Авангард", imageSrc: avangardImage },
+  {
+    id: "representatives",
+    label: "Представители",
+    imageSrc: representativesImage,
+  },
+  { id: "archive", label: "Архив", imageSrc: archiveImage },
 ];

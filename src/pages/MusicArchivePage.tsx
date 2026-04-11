@@ -26,7 +26,9 @@ function MusicArchivePage() {
               <p className="text-base font-medium text-ink/80">
                 Название произведения
               </p>
-              <p className="text-sm text-ink/45">Автор · год · длительность</p>
+              <p className="text-sm text-ink/45">
+                Автор · год · длительность
+              </p>
             </div>
           </div>
         ))}

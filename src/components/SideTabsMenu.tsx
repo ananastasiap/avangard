@@ -8,57 +8,63 @@ type Props = {
 
 function TabItem({
   label,
-  color,
+  imageSrc,
   isActive,
   onClick,
 }: {
   label: string;
-  color: string;
+  imageSrc: string;
   isActive: boolean;
   onClick: () => void;
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className="group relative h-12 w-full cursor-pointer border-none bg-transparent p-0 outline-none"
+      aria-pressed={isActive}
+      className={`tab-lift group flex w-full items-center gap-3 rounded-[16px] border px-4 py-3 text-left outline-none transition-all duration-200 ease-out focus-visible:ring-2 focus-visible:ring-accent/60 ${
+        isActive
+          ? "border-white/10 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
+          : "border-transparent bg-transparent hover:border-white/8 hover:bg-white/[0.03]"
+      }`}
     >
       <div
-        className={`absolute right-0 flex h-12 items-center overflow-hidden rounded-full transition-all duration-200 ease-out ${
+        className={`h-9 w-9 shrink-0 overflow-hidden rounded-full transition-all duration-200 ${
           isActive
-            ? "w-full bg-accent/15"
-            : "w-12 bg-main/10 group-hover:w-full group-hover:bg-main/8"
+            ? "ring-2 ring-[#a62134]/90 ring-offset-0"
+            : "opacity-82 group-hover:opacity-100"
         }`}
       >
-        <div
-          className={`h-12 w-12 shrink-0 rounded-full border-2 transition-colors ${
-            isActive
-              ? "border-accent"
-              : "border-main/20 group-hover:border-accent/60"
-          } ${color}`}
+        <img
+          src={imageSrc}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover object-center"
         />
-        <span
-          className={`whitespace-nowrap pl-2 pr-4 text-sm font-medium tracking-wide transition-opacity duration-150 ${
-            isActive
-              ? "text-main opacity-100"
-              : "text-ink/60 opacity-0 group-hover:opacity-100"
-          }`}
-        >
-          {label}
-        </span>
       </div>
+
+      <span
+        className={`min-w-0 text-base font-medium transition-colors duration-200 ${
+          isActive ? "text-white" : "text-white/70"
+        }`}
+      >
+        {label}
+      </span>
     </button>
   );
 }
 
 function SideTabsMenu({ activeTab, onTabChange, onAboutClick }: Props) {
   return (
-    <aside className="order-2 flex min-h-55 flex-col justify-between rounded-[28px] border border-main/12 bg-paper-strong p-4 lg:order-1 lg:min-h-0">
-      <nav className="flex flex-col gap-1">
+    <aside className="relative order-2 flex min-h-55 flex-col justify-between overflow-hidden rounded-[28px] border border-white/8 bg-[#302f2c] p-5 text-[#d8d2ca] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] lg:order-1 lg:min-h-0">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_30%)]" />
+
+      <nav aria-label="Основные разделы" className="relative flex flex-col gap-2">
         {TABS.map((tab) => (
           <TabItem
             key={tab.id}
             label={tab.label}
-            color={tab.color}
+            imageSrc={tab.imageSrc}
             isActive={tab.id === activeTab}
             onClick={() => onTabChange(tab.id)}
           />
@@ -66,10 +72,11 @@ function SideTabsMenu({ activeTab, onTabChange, onAboutClick }: Props) {
       </nav>
 
       <button
+        type="button"
         onClick={onAboutClick}
-        className="cursor-pointer border-none bg-transparent p-0 text-left outline-none"
+        className="relative mt-5 cursor-pointer border-none bg-transparent p-0 text-left outline-none"
       >
-        <span className="ui-label text-ink/40 transition-colors hover:text-ink/70">
+        <span className="ui-label text-white/38 transition-colors hover:text-white/68">
           О проекте
         </span>
       </button>

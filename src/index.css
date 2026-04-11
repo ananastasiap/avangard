@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 @import "tailwindcss";
 
 @theme inline {
@@ -14,8 +15,7 @@
   --paper-color: #f1ebe4;
   --paper-strong-color: #fbf7f2;
   --ink-color: #282120;
-  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua",
-    Palatino, Georgia, serif;
+  --font-display: "IBM Plex Serif", Georgia, serif;
   --font-ui: "Trebuchet MS", "Segoe UI", sans-serif;
   color: var(--ink-color);
   background-color: var(--main-color);
@@ -108,6 +108,10 @@ button {
   transform-origin: center top;
 }
 
+.tab-panel-reveal {
+  animation: tabPanelReveal 280ms ease-out;
+}
+
 @keyframes posterFloat {
   0%,
   100% {
@@ -119,10 +123,23 @@ button {
   }
 }
 
+@keyframes tabPanelReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   .tab-lift,
-  .poster-float {
+  .poster-float,
+  .tab-panel-reveal {
     animation: none;
     transition: none;
   }
