@@ -26,7 +26,7 @@ function Button({
   return (
     <button
       type={type}
-      className={`tab-lift inline-flex items-center justify-center ${variantClasses[variant]} ${className}`.trim()}
+      className={`tab-lift inline-flex items-center justify-center ${variantClasses[variant]} ${className}`}
       {...props}
     >
       {children}

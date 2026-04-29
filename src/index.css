@@ -46,6 +46,30 @@ button {
   text-transform: inherit;
 }
 
+* {
+  scrollbar-color: var(--accent-color) var(--main-color);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border: 2px solid var(--main-color);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--accent-color) 82%, white);
+}
+
 .ui-label {
   font-family: var(--font-ui);
   font-size: 0.72rem;

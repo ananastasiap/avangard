@@ -1,6 +1,5 @@
 import shnitkeImage from "../assets/representatives/shnitke.jpg";
-
-export type RepresentativeId = "schnittke";
+import type { RepresentativeId } from "../types";
 
 type Props = {
   selectedRepresentative: RepresentativeId | null;
@@ -24,7 +23,7 @@ function SchnittkeProfile({ onBack }: { onBack: () => void }) {
           <img
             src={shnitkeImage}
             alt="Альфред Шнитке"
-            className="h-full min-h-[420px] w-full object-cover object-center"
+            className="h-full min-h-105 w-full object-cover object-center"
           />
         </div>
 
@@ -86,7 +85,7 @@ function SchnittkeProfile({ onBack }: { onBack: () => void }) {
               </p>
             </div>
 
-            <aside className="rounded-[20px] border border-accent/14 bg-accent/[0.05] p-4">
+            <aside className="rounded-[20px] border border-accent/14 bg-accent/5 p-4">
               <p className="text-xs uppercase tracking-[0.2em] text-ink/45">
                 Ключевые сочинения
               </p>

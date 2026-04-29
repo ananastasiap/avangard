@@ -10,7 +10,7 @@ function Header({ notes }: HeaderProps) {
       <div className="flex w-full items-center justify-between gap-2 sm:gap-4">
         {notes.map((note, index) => (
           <span
-            key={`${note}-${index}`}
+            key={index}
             aria-hidden="true"
             className="note-sway block flex-1 text-center text-[1.65rem] leading-none text-accent/80 sm:text-[2.1rem] lg:text-[2.6rem]"
             style={{ animationDelay: `${index * 0.05}s` }}

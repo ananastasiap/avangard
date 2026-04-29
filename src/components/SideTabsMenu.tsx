@@ -1,27 +1,25 @@
+import { Link, NavLink } from "react-router-dom";
 import { TABS } from "../data/tabs";
 
 type Props = {
   activeTab: string | null;
-  onTabChange: (id: string) => void;
-  onAboutClick: () => void;
 };
 
 function TabItem({
   label,
   imageSrc,
+  path,
   isActive,
-  onClick,
 }: {
   label: string;
   imageSrc: string;
+  path: string;
   isActive: boolean;
-  onClick: () => void;
 }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={isActive}
+    <NavLink
+      to={path}
+      aria-current={isActive ? "page" : undefined}
       className={`tab-lift group flex w-full items-center gap-3 rounded-[16px] border px-4 py-3 text-left outline-none transition-all duration-200 ease-out focus-visible:ring-2 focus-visible:ring-accent/60 ${
         isActive
           ? "border-white/10 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
@@ -50,36 +48,38 @@ function TabItem({
       >
         {label}
       </span>
-    </button>
+    </NavLink>
   );
 }
 
-function SideTabsMenu({ activeTab, onTabChange, onAboutClick }: Props) {
+function SideTabsMenu({ activeTab }: Props) {
   return (
     <aside className="relative order-2 flex min-h-55 flex-col justify-between overflow-hidden rounded-[28px] border border-white/8 bg-[#302f2c] p-5 text-[#d8d2ca] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] lg:order-1 lg:min-h-0">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_30%)]" />
 
-      <nav aria-label="Основные разделы" className="relative flex flex-col gap-2">
-        {TABS.map((tab) => (
-          <TabItem
-            key={tab.id}
-            label={tab.label}
-            imageSrc={tab.imageSrc}
-            isActive={tab.id === activeTab}
-            onClick={() => onTabChange(tab.id)}
-          />
-        ))}
+      <nav aria-label="Основные разделы" className="relative">
+        <ul className="flex flex-col gap-2">
+          {TABS.map((tab) => (
+            <li key={tab.id}>
+              <TabItem
+                label={tab.label}
+                imageSrc={tab.imageSrc}
+                path={tab.path}
+                isActive={tab.id === activeTab}
+              />
+            </li>
+          ))}
+        </ul>
       </nav>
 
-      <button
-        type="button"
-        onClick={onAboutClick}
+      <Link
+        to="/about"
         className="relative mt-5 cursor-pointer border-none bg-transparent p-0 text-left outline-none"
       >
         <span className="ui-label text-white/38 transition-colors hover:text-white/68">
           О проекте
         </span>
-      </button>
+      </Link>
     </aside>
   );
 }
