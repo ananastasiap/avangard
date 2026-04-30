@@ -4,4 +4,4 @@ export type Crumb = {
   onClick?: () => void;
 };
 
-export type RepresentativeId = "schnittke";
+export type RepresentativeId = "schnittke" | "gubaidulina" | "gavrilin" | "denisov";
