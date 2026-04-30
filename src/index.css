@@ -126,6 +126,27 @@ button {
   box-shadow: 0 14px 30px rgba(30, 30, 30, 0.1);
 }
 
+.side-tab-label {
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.12;
+}
+
+.side-tab-label--adaptive {
+  display: -webkit-box;
+  max-width: min(13ch, 100%);
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  mask-image: linear-gradient(90deg, #000 calc(100% - 16px), transparent);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 calc(100% - 16px),
+    transparent
+  );
+}
+
 
 .poster-float {
   animation: posterFloat 8s ease-in-out infinite;

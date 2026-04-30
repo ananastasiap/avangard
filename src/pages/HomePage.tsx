@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-} from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import avangardPromo from "../assets/avangard-promo.jpg";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Header from "../components/Header/Header";
@@ -104,10 +99,10 @@ function HomePage() {
 
         <Header notes={SCHNITTKE_NOTES} />
 
-        <div className="mt-2 grid flex-1 gap-2 lg:grid-cols-[280px_minmax(0,1fr)_100px]">
+        <div className="mt-2 grid flex-1 gap-2 lg:grid-cols-[230px_minmax(0,1fr)] xl:grid-cols-[230px_minmax(0,1fr)_190px]">
           <SideTabsMenu activeTab={activeTab} />
 
-          <section className="relative order-1 overflow-hidden rounded-4xl border border-main/12 bg-paper-strong px-5 py-6 sm:px-8 sm:py-8 lg:order-2 lg:px-10 lg:py-10">
+          <section className="relative order-2 overflow-hidden rounded-4xl border border-main/12 bg-paper-strong px-5 py-6 sm:px-8 sm:py-8">
             <Breadcrumbs crumbs={breadcrumbs[activePage]} />
             <Routes>
               <Route path="/" element={<AvangardPage />} />
