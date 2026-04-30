@@ -1,0 +1,31 @@
+.staff-lines {
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.3)),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 14px,
+      rgba(134, 0, 0, 0.14) 14px 15px,
+      transparent 15px 30px
+    );
+}
+
+.note-sway {
+  animation: noteWave 3s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes noteWave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .note-sway {
+    animation: none;
+  }
+}
