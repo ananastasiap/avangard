@@ -19,7 +19,8 @@ const SECTION_MAP: Record<AvangardTabId, React.ReactNode> = {
 function AvangardPage() {
   const [activeTab, setActiveTab] = useState<AvangardTabId>("avangard");
   const tabsId = useId();
-  const activeTabData = AVANGARD_TABS.find(({ id }) => id === activeTab) ?? AVANGARD_TABS[0];
+  const activeTabData =
+    AVANGARD_TABS.find(({ id }) => id === activeTab) ?? AVANGARD_TABS[0];
 
   function handleTabChange(nextTab: AvangardTabId) {
     startTransition(() => {
@@ -77,7 +78,7 @@ function AvangardPage() {
                       }`}
                     >
                       <span
-                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition-colors duration-200 ${
+                        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition-colors duration-200 ${
                           isActive
                             ? "bg-[#a62134] text-white"
                             : "bg-white/30 text-white/55 group-hover:bg-white/38 group-hover:text-white/72"
