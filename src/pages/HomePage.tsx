@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import avangardPromo from "../assets/avangard-promo.jpg";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -7,11 +7,12 @@ import RightImagePanel from "../components/RightImagePanel";
 import SideTabsMenu from "../components/SideTabsMenu";
 import { SCHNITTKE_NOTES } from "../data/notes";
 import type { RepresentativeId } from "../types";
-import AboutPage from "./AboutPage";
 import AvangardPage from "./AvangardPage";
-import DictionaryPage from "./DictionaryPage";
-import MusicArchivePage from "./MusicArchivePage";
-import RepresentativesPage from "./RepresentativesPage";
+
+const AboutPage = lazy(() => import("./AboutPage"));
+const DictionaryPage = lazy(() => import("./DictionaryPage"));
+const MusicArchivePage = lazy(() => import("./MusicArchivePage"));
+const RepresentativesPage = lazy(() => import("./RepresentativesPage"));
 
 type PageId =
   | "avangard"
@@ -104,26 +105,28 @@ function HomePage() {
 
           <section className="relative order-2 overflow-hidden rounded-4xl border border-main/12 bg-paper-strong px-5 py-6 sm:px-8 sm:py-8">
             <Breadcrumbs crumbs={breadcrumbs[activePage]} />
-            <Routes>
-              <Route path="/" element={<AvangardPage />} />
-              <Route
-                path="/representatives"
-                element={
-                  <RepresentativesPage
-                    selectedRepresentative={activeRepresentative}
-                    onRepresentativeSelect={setSelectedRepresentative}
-                    onBackToCards={() => setSelectedRepresentative(null)}
-                  />
-                }
-              />
-              <Route
-                path="/dictionary"
-                element={<DictionaryPage selectedSlug={dictionaryWord} />}
-              />
-              <Route path="/archive" element={<MusicArchivePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
+            <Suspense fallback={null}>
+              <Routes>
+                <Route path="/" element={<AvangardPage />} />
+                <Route
+                  path="/representatives"
+                  element={
+                    <RepresentativesPage
+                      selectedRepresentative={activeRepresentative}
+                      onRepresentativeSelect={setSelectedRepresentative}
+                      onBackToCards={() => setSelectedRepresentative(null)}
+                    />
+                  }
+                />
+                <Route
+                  path="/dictionary"
+                  element={<DictionaryPage selectedSlug={dictionaryWord} />}
+                />
+                <Route path="/archive" element={<MusicArchivePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Routes>
+            </Suspense>
           </section>
 
           <RightImagePanel imageSrc={avangardPromo} />
