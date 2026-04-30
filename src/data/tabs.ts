@@ -1,6 +1,7 @@
 import archiveImage from "../assets/archive.jpg";
 import avangardImage from "../assets/avangard.jpg";
 import representativesImage from "../assets/representatives.jpg";
+import dictionaryImage from "../assets/dictionary.jpg";
 
 export type Tab = {
   id: string;
@@ -20,7 +21,7 @@ export const TABS: Tab[] = [
   {
     id: "dictionary",
     label: "Глоссарий",
-    imageSrc: archiveImage,
+    imageSrc: dictionaryImage,
     path: "/dictionary",
   },
   { id: "archive", label: "Архив", imageSrc: archiveImage, path: "/archive" },
