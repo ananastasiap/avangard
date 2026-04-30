@@ -36,12 +36,15 @@ function DictionaryPage({ selectedSlug }: Props) {
   const filteredEntries = useMemo(() => {
     const normalizedSearch = normalizeSearchValue(search);
 
-    if (normalizedSearch.length < MIN_SEARCH_LENGTH) {
-      return DICTIONARY_ENTRIES;
-    }
+    const entries =
+      normalizedSearch.length < MIN_SEARCH_LENGTH
+        ? DICTIONARY_ENTRIES
+        : DICTIONARY_ENTRIES.filter((entry) =>
+            getEntrySearchValue(entry).includes(normalizedSearch),
+          );
 
-    return DICTIONARY_ENTRIES.filter((entry) =>
-      getEntrySearchValue(entry).includes(normalizedSearch),
+    return [...entries].sort((a, b) =>
+      a.title.localeCompare(b.title, "ru-RU"),
     );
   }, [search]);
 
@@ -90,7 +93,7 @@ function DictionaryPage({ selectedSlug }: Props) {
       </div>
 
       <div className="mt-9 grid gap-8">
-        {Object.entries(groupedEntries).map(([letter, entries]) => (
+        {Object.entries(groupedEntries).sort(([a], [b]) => a.localeCompare(b, "ru-RU")).map(([letter, entries]) => (
           <section key={letter} aria-labelledby={`dictionary-letter-${letter}`}>
             <h3
               id={`dictionary-letter-${letter}`}
@@ -109,7 +112,7 @@ function DictionaryPage({ selectedSlug }: Props) {
                     id={entry.slug}
                     className={`scroll-mt-8 rounded-[20px] border p-5 transition-all duration-300 ${
                       isSelected
-                        ? "border-accent/45 bg-accent/[0.08] shadow-[0_16px_40px_rgba(134,0,0,0.10)]"
+                        ? "border-accent/45 bg-accent/8 shadow-[0_16px_40px_rgba(134,0,0,0.10)]"
                         : "border-main/10 bg-main/[0.035]"
                     }`}
                   >
