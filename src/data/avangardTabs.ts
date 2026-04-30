@@ -41,7 +41,7 @@ export const AVANGARD_TABS: AvangardTab[] = [
   },
   {
     id: "genre-fate",
-    badge: "Ж",
+    badge: "С",
     label: "Судьба жанров",
     eyebrow: "Раздел 06",
   },
