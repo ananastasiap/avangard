@@ -26,7 +26,7 @@ function RepresentativeProfileLayout({
       </button>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(280px,0.85fr)_minmax(0,1.15fr)]">
-        <div className="h-120 overflow-hidden rounded-[28px] border border-main/10 bg-main/5">
+        <div className="h-120 overflow-hidden rounded-[28px] border border-main/10 bg-main/5 lg:sticky lg:top-7 lg:self-start">
           <img
             src={imageSrc}
             alt={name}

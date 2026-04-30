@@ -47,7 +47,7 @@ function AvangardPage() {
         </div>
 
         <section className="mt-8 flex-1 pb-2">
-          <div className="relative overflow-hidden rounded-[30px] border border-main/14 bg-[#302f2c] p-4 text-[#d8d2ca] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-5 lg:p-6">
+          <div className="relative overflow-x-clip rounded-[30px] border border-main/14 bg-[#302f2c] p-4 text-[#d8d2ca] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-5 lg:p-6">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.04),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_45%)]" />
 
             <div className="relative grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)]">
@@ -112,7 +112,7 @@ function AvangardPage() {
                 id={`${tabsId}-${activeTabData.id}-panel`}
                 role="tabpanel"
                 aria-labelledby={`${tabsId}-${activeTabData.id}-tab`}
-                className="tab-panel-reveal min-h-[360px] overflow-y-auto rounded-[18px] border border-white/10 bg-[#34332f] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:px-6 sm:py-6 lg:min-h-[430px] lg:px-8 lg:py-7"
+                className="tab-panel-reveal min-h-[360px] rounded-[18px] border border-white/10 bg-[#34332f] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:px-6 sm:py-6 lg:min-h-[430px] lg:px-8 lg:py-7"
               >
                 {SECTION_MAP[activeTabData.id]}
               </article>

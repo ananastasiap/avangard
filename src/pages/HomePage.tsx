@@ -103,7 +103,7 @@ function HomePage() {
         <div className="mt-2 grid flex-1 gap-2 lg:grid-cols-[230px_minmax(0,1fr)] xl:grid-cols-[230px_minmax(0,1fr)_190px]">
           <SideTabsMenu activeTab={activeTab} />
 
-          <section className="relative order-2 overflow-hidden rounded-4xl border border-main/12 bg-paper-strong px-5 py-6 sm:px-8 sm:py-8">
+          <section className="relative order-2 overflow-x-clip rounded-4xl border border-main/12 bg-paper-strong px-5 py-6 sm:px-8 sm:py-8">
             <Breadcrumbs crumbs={breadcrumbs[activePage]} />
             <Suspense fallback={null}>
               <Routes>
