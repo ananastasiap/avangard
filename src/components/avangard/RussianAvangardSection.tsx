@@ -1,4 +1,120 @@
+import { A11y, Keyboard, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import DictionaryLink from "../DictionaryLink";
+import kholopovImage from "../../assets/pictures/kholopov.webp";
+import londonImage from "../../assets/pictures/london.webp";
+import myaskovskiImage from "../../assets/pictures/myaskovski.webp";
+import picassoImage from "../../assets/pictures/picasso.webp";
+import picassoSecondImage from "../../assets/pictures/picasso2.webp";
+import sovremennikImage from "../../assets/pictures/sovremennik.webp";
+import stravinskyImage from "../../assets/pictures/stravinsky.webp";
+import svmImage from "../../assets/pictures/svm.webp";
+import tagankaImage from "../../assets/pictures/taganka.webp";
+import threeImage from "../../assets/pictures/three.webp";
+import vklibernImage from "../../assets/pictures/vklibern.webp";
+
+import "swiper/css";
+import "swiper/css/navigation";
+
+type CarouselSlide = {
+  image: string;
+  alt: string;
+  caption: string;
+};
+
+const IDEOLOGY_SLIDES: CarouselSlide[] = [
+  {
+    image: svmImage,
+    alt: "Газета Советское искусство со статьёй Сумбур вместо музыки",
+    caption: "«Сумбур вместо музыки»",
+  },
+  {
+    image: threeImage,
+    alt: "Сергей Прокофьев, Дмитрий Шостакович, Арам Хачатурян",
+    caption: "Сергей Прокофьев, Дмитрий Шостакович, Арам Хачатурян",
+  },
+  {
+    image: myaskovskiImage,
+    alt: "Николай Мясковский",
+    caption: "Николай Мясковский",
+  },
+];
+
+const THAW_SLIDES: CarouselSlide[] = [
+  {
+    image: tagankaImage,
+    alt: "Театр на Таганке",
+    caption: "Театр на Таганке",
+  },
+  {
+    image: sovremennikImage,
+    alt: "Московский театр Современник",
+    caption: "Московский театр «Современник»",
+  },
+  {
+    image: londonImage,
+    alt: "Гастроли Большого театра в Лондоне",
+    caption: "Гастроли Большого театра в Лондоне",
+  },
+  {
+    image: picassoImage,
+    alt: "Выставка Пабло Пикассо в Москве",
+    caption: "Выставка Пабло Пикассо в Москве",
+  },
+  {
+    image: picassoSecondImage,
+    alt: "Работы Пабло Пикассо на выставке в Москве",
+    caption: "Работы Пабло Пикассо на выставке в Москве",
+  },
+  {
+    image: stravinskyImage,
+    alt: "Игорь Стравинский в Москве",
+    caption: "Игорь Стравинский в Москве (1962)",
+  },
+  {
+    image: vklibernImage,
+    alt: "Ван Клиберн на конкурсе имени Чайковского",
+    caption: "Ван Клиберн на конкурсе имени П. И. Чайковского (1958)",
+  },
+];
+
+function ImageCarousel({ slides }: { slides: CarouselSlide[] }) {
+  return (
+    <div className="min-w-0">
+      <Swiper
+        className="simple-image-carousel"
+        modules={[Navigation, Keyboard, A11y]}
+        loop
+        slidesPerView={1}
+        spaceBetween={16}
+        navigation
+        keyboard={{ enabled: true }}
+        a11y={{
+          prevSlideMessage: "Предыдущий слайд",
+          nextSlideMessage: "Следующий слайд",
+        }}
+      >
+        {slides.map(({ image, alt, caption }) => (
+          <SwiperSlide key={caption}>
+            <figure className="min-w-0">
+              <div className="flex h-64 items-center justify-center overflow-hidden rounded-[18px] border border-white/10 bg-black/10 sm:h-80 lg:h-96">
+                <img
+                  src={image}
+                  alt={alt}
+                  loading="lazy"
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+              <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+                {caption}
+              </figcaption>
+            </figure>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
 
 function RussianAvangardSection() {
   return (
@@ -31,6 +147,20 @@ function RussianAvangardSection() {
               от Европы «железным занавесом». Часть художников эмигрировала,
               часть подверглась репрессиям.
             </p>
+
+            <figure className="mt-1 min-w-0">
+              <div className="flex h-64 items-center justify-center overflow-hidden rounded-[18px] border border-white/10 bg-black/10 sm:h-80 lg:h-96">
+                <img
+                  src={kholopovImage}
+                  alt="Юрий Холопов"
+                  loading="lazy"
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+              <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+                Юрий Холопов (1932–2003)
+              </figcaption>
+            </figure>
           </li>
         </ul>
 
@@ -92,6 +222,8 @@ function RussianAvangardSection() {
           «Сумбур вместо музыки».
         </p>
 
+        <ImageCarousel slides={IDEOLOGY_SLIDES} />
+
         <p>
           После смерти Сталина и XX съезда КПСС (1956) начался этап духовного
           обновления и постепенного снятия запретов – период «оттепели» (конец
@@ -104,6 +236,8 @@ function RussianAvangardSection() {
           Эпоха также ознаменована освоением космоса, открытием лазера и
           масштабным строительством (Братская ГЭС, «хрущевки»).
         </p>
+
+        <ImageCarousel slides={THAW_SLIDES} />
 
         <p>
           Несмотря на творческий подъем, период конца 1960-х – начала 1980-х

@@ -1,3 +1,7 @@
+import asheImage from "../../assets/pictures/ashe.webp";
+import abergImage from "../../assets/pictures/aberg.webp";
+import awebernImage from "../../assets/pictures/awebern.webp";
+
 function EuropeanAvangardSection() {
   return (
     <div className="max-w-4xl">
@@ -94,6 +98,21 @@ function EuropeanAvangardSection() {
             оказало фундаментальное влияние на развитие музыки XX века, открыв
             путь авангардизму и экспрессионизму.
           </p>
+
+          <figure className="mt-1">
+            <div className="aspect-[16/10] overflow-hidden rounded-[18px] border border-white/10 bg-black/10">
+              <img
+                src={asheImage}
+                alt="Арнольд Шёнберг"
+                loading="lazy"
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+              Арнольд Шёнберг (1874–1951)
+            </figcaption>
+          </figure>
+
           <p>
             Творческий путь Шёнберга принято разделять на три основных периода,
             каждый из которых характеризуется особым подходом к музыкальному
@@ -144,6 +163,21 @@ function EuropeanAvangardSection() {
             эмоциональной непосредственностью, большей теплотой музыкальных
             образов, человечностью, жизненностью своего искусства.
           </p>
+
+          <figure className="mt-1">
+            <div className="aspect-[16/10] overflow-hidden rounded-[18px] border border-white/10 bg-black/10">
+              <img
+                src={abergImage}
+                alt="Альбан Берг"
+                loading="lazy"
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+              Альбан Берг (1885–1935)
+            </figcaption>
+          </figure>
+
           <p>
             Творческая эволюция Берга повторяет путь его учителя: от позднего
             романтизма через атонализм к додекафонии, однако со своими
@@ -185,6 +219,21 @@ function EuropeanAvangardSection() {
             <strong>нового музыкального миросозерцания</strong>, оказавшего
             колоссальное влияние на послевоенный авангард.
           </p>
+
+          <figure className="mt-1">
+            <div className="aspect-[16/10] overflow-hidden rounded-[18px] border border-white/10 bg-black/10">
+              <img
+                src={awebernImage}
+                alt="Антон Веберн"
+                loading="lazy"
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+              Антон Веберн (1883–1945)
+            </figcaption>
+          </figure>
+
           <h5 className="text-lg font-semibold leading-tight text-white">
             Особенности музыкального языка:
           </h5>

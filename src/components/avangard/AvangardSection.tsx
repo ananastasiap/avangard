@@ -1,4 +1,5 @@
 import DictionaryLink from "../DictionaryLink";
+import polgogenImage from "../../assets/pictures/polgogen.webp";
 
 function AvangardSection() {
   return (
@@ -69,6 +70,20 @@ function AvangardSection() {
           другие разновидности нео- и пост-. Те, кто ставил во главу угла
           новизну, пошли по пути авангарда.
         </p>
+
+        <figure className="mt-1">
+          <div className="aspect-[16/10] overflow-hidden rounded-[18px] border border-white/10 bg-black/10">
+            <img
+              src={polgogenImage}
+              alt="Поль Гоген. Автопортрет с жёлтым Христом"
+              loading="lazy"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+            Поль Гоген «Автопортрет с жёлтым Христом» (1890–1891 гг.)
+          </figcaption>
+        </figure>
 
         <p>
           <DictionaryLink slug="avangard">Авангард</DictionaryLink> в музыке –

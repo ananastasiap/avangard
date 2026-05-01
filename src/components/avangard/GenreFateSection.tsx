@@ -1,3 +1,85 @@
+import { A11y, Keyboard, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import avosAndYunonaImage from "../../assets/pictures/avosandynona.webp";
+import crazyNotesImage from "../../assets/pictures/crazynotes.webp";
+import kareninaImage from "../../assets/pictures/karenina.webp";
+import mxatImage from "../../assets/pictures/mxat.webp";
+import symphonyFirstImage from "../../assets/pictures/symphony1.webp";
+import symphonySecondImage from "../../assets/pictures/symphony2.webp";
+import symphonyThirdImage from "../../assets/pictures/symphony3.webp";
+import symphonyFourthImage from "../../assets/pictures/symphony4.webp";
+
+import "swiper/css";
+import "swiper/css/navigation";
+
+type CarouselSlide = {
+  image: string;
+  alt: string;
+  caption: string;
+};
+
+const SYMPHONY_SLIDES: CarouselSlide[] = [
+  {
+    image: symphonyFirstImage,
+    alt: "Архив Санкт-Петербургской филармонии имени Дмитрия Шостаковича",
+    caption: "Архив Санкт-Петербургской филармонии им. Д. Д. Шостаковича",
+  },
+  {
+    image: symphonySecondImage,
+    alt: "Продажа билетов на концерт симфонического оркестра",
+    caption: "Продажа билетов на концерт симфонического оркестра",
+  },
+  {
+    image: symphonyThirdImage,
+    alt: "Исполнение Седьмой симфонии Дмитрия Шостаковича в блокадном Ленинграде",
+    caption:
+      "В блокадном Ленинграде в Большом зале филармонии прозвучала Седьмая симфония Дмитрия Шостаковича, созданная в осажденном городе; оркестром дирижировал Карл Элиасберг.",
+  },
+  {
+    image: symphonyFourthImage,
+    alt: "Дмитрий Дмитриевич Шостакович",
+    caption: "Дмитрий Дмитриевич Шостакович (1906–1975)",
+  },
+];
+
+function ImageCarousel({ slides }: { slides: CarouselSlide[] }) {
+  return (
+    <div className="min-w-0">
+      <Swiper
+        className="simple-image-carousel"
+        modules={[Navigation, Keyboard, A11y]}
+        loop
+        slidesPerView={1}
+        spaceBetween={16}
+        navigation
+        keyboard={{ enabled: true }}
+        a11y={{
+          prevSlideMessage: "Предыдущий слайд",
+          nextSlideMessage: "Следующий слайд",
+        }}
+      >
+        {slides.map(({ image, alt, caption }) => (
+          <SwiperSlide key={caption}>
+            <figure className="min-w-0">
+              <div className="flex h-64 items-center justify-center overflow-hidden rounded-[18px] border border-white/10 bg-black/10 sm:h-80 lg:h-96">
+                <img
+                  src={image}
+                  alt={alt}
+                  loading="lazy"
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+              <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+                {caption}
+              </figcaption>
+            </figure>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
+
 function GenreFateSection() {
   return (
     <div className="max-w-4xl">
@@ -31,6 +113,8 @@ function GenreFateSection() {
           - №5, воссоздающая модель «Ленинградской симфонии», но дополненная
           пластом знаменно-эпического характера).
         </p>
+
+        <ImageCarousel slides={SYMPHONY_SLIDES} />
 
         <h4 className="text-lg leading-tight text-white">
           В 60-80-е г.г. в развитии симфонии обозначились 2 тенденции:
@@ -135,6 +219,21 @@ function GenreFateSection() {
           <strong>цитирования, компиляции и коллажа.</strong>
         </p>
 
+        <figure className="mt-1 min-w-0">
+          <div className="flex h-64 items-center justify-center overflow-hidden rounded-[18px] border border-white/10 bg-black/10 sm:h-80 lg:h-96">
+            <img
+              src={mxatImage}
+              alt="Московский Художественный театр"
+              loading="lazy"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+            Московский Художественный Академический театр им М. Горького - одним
+            из ведущих театров России XX века
+          </figcaption>
+        </figure>
+
         <p>
           В то время как европейская традиция зачастую сохраняла авторскую
           семантику и целостность цитируемых произведений, в отечественной
@@ -203,6 +302,21 @@ function GenreFateSection() {
           («Мастер и Маргарита»).
         </p>
 
+        <figure className="mt-1 min-w-0">
+          <div className="flex h-64 items-center justify-center overflow-hidden rounded-[18px] border border-white/10 bg-black/10 sm:h-80 lg:h-96">
+            <img
+              src={crazyNotesImage}
+              alt="Афиша монооперы Записки сумасшедшего"
+              loading="lazy"
+              className="max-h-full max-w-full object-contain"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+            Афиша первой отечественной монооперы «Записки сумасшедшего» по
+            Гоголю Ю. Буцко (1964)
+          </figcaption>
+        </figure>
+
         <p>
           Кроме того, старинные мифы и «вечные» образы стали часто переноситься
           в современную действительность, что позволяло композиторам
@@ -245,6 +359,20 @@ function GenreFateSection() {
           А. Журбин «Эвридика»; А. Градский «Стадион»; А. Богословский «Алые
           паруса».
         </p>
+
+        <figure className="mt-1 min-w-0">
+          <div className="flex h-64 items-center justify-center overflow-hidden rounded-[18px] border border-white/10 bg-black/10 sm:h-80 lg:h-96">
+            <img
+              src={avosAndYunonaImage}
+              alt="Сцена из рок-оперы Юнона и Авось"
+              loading="lazy"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+            «Юнона и Авось» композитора Алексея Рыбникова
+          </figcaption>
+        </figure>
 
         <p>
           Помимо прочего в опере произошло <em>обновление драматургии</em>,
@@ -321,6 +449,20 @@ function GenreFateSection() {
             «Пер Гюнт» и т.д.
           </p>
         </div>
+
+        <figure className="mt-1 min-w-0">
+          <div className="mx-auto flex h-72 w-fit max-w-full items-center justify-center overflow-hidden rounded-[18px] border border-white/10 bg-black/10 sm:h-96 lg:h-[30rem]">
+            <img
+              src={kareninaImage}
+              alt="Афиша к балету Анна Каренина Родиона Щедрина"
+              loading="lazy"
+              className="h-full max-w-full object-contain"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+            Афиша к балету Родиона Щедрина «А. Каренина»
+          </figcaption>
+        </figure>
 
         <p>
           К концу столетия балет окончательно утвердил себя как прогрессивную

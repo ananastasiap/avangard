@@ -153,6 +153,45 @@ button {
   transform-origin: center top;
 }
 
+.simple-image-carousel {
+  --swiper-navigation-size: 0.95rem;
+  --swiper-navigation-color: rgba(255, 255, 255, 0.82);
+  --carousel-image-height: 16rem;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.simple-image-carousel .swiper-button-next,
+.simple-image-carousel .swiper-button-prev {
+  height: 2.25rem;
+  margin-top: 0;
+  top: calc(var(--carousel-image-height) * 0.42);
+  transform: translateY(-50%);
+  width: 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.48);
+}
+
+.simple-image-carousel .swiper-button-next::after,
+.simple-image-carousel .swiper-button-prev::after {
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .simple-image-carousel {
+    --carousel-image-height: 20rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .simple-image-carousel {
+    --carousel-image-height: 24rem;
+  }
+}
+
 .tab-panel-reveal {
   animation: tabPanelReveal 280ms ease-out;
 }

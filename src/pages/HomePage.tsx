@@ -11,21 +11,18 @@ import AvangardPage from "./AvangardPage";
 
 const AboutPage = lazy(() => import("./AboutPage"));
 const DictionaryPage = lazy(() => import("./DictionaryPage"));
-const MusicArchivePage = lazy(() => import("./MusicArchivePage"));
 const RepresentativesPage = lazy(() => import("./RepresentativesPage"));
 
 type PageId =
   | "avangard"
   | "representatives"
   | "dictionary"
-  | "archive"
   | "about";
 
 const PAGE_PATHS: Record<PageId, string> = {
   avangard: "/",
   representatives: "/representatives",
   dictionary: "/dictionary",
-  archive: "/archive",
   about: "/about",
 };
 
@@ -36,10 +33,6 @@ function getActivePage(pathname: string): PageId {
 
   if (pathname === PAGE_PATHS.dictionary) {
     return "dictionary";
-  }
-
-  if (pathname === PAGE_PATHS.archive) {
-    return "archive";
   }
 
   if (pathname === PAGE_PATHS.about) {
@@ -80,10 +73,6 @@ function HomePage() {
       { label: "Авангард", to: PAGE_PATHS.avangard },
       { label: "Глоссарий" },
     ],
-    archive: [
-      { label: "Авангард", to: PAGE_PATHS.avangard },
-      { label: "Музыкальный архив" },
-    ],
     about: [
       { label: "Авангард", to: PAGE_PATHS.avangard },
       { label: "О проекте" },
@@ -122,7 +111,6 @@ function HomePage() {
                   path="/dictionary"
                   element={<DictionaryPage selectedSlug={dictionaryWord} />}
                 />
-                <Route path="/archive" element={<MusicArchivePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>

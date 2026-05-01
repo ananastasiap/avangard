@@ -1,4 +1,38 @@
+import { A11y, Keyboard, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import DictionaryLink from "../DictionaryLink";
+import cage433Image from "../../assets/pictures/433.webp";
+import denisovSilhouettesImage from "../../assets/pictures/denisovs.webp";
+import stockhausenKlavierstuckImage from "../../assets/pictures/ksh.webp";
+import schoenbergPianoPieceImage from "../../assets/pictures/shenberg.webp";
+
+import "swiper/css";
+import "swiper/css/navigation";
+
+const SCORE_SLIDES = [
+  {
+    image: cage433Image,
+    alt: "Партитура Джона Кейджа 4'33",
+    caption:
+      "Дж. Кейдж - пьеса 4'33\" для любого инструмента или ансамбля инструментов",
+  },
+  {
+    image: schoenbergPianoPieceImage,
+    alt: "Партитура Арнольда Шёнберга Пьеса для фортепиано номер 1 op.33a",
+    caption: "Арнольд Шёнберг - Пьеса для фортепиано номер 1 op.33a",
+  },
+  {
+    image: stockhausenKlavierstuckImage,
+    alt: "Партитура Карлхайнца Штокхаузена Пьеса для фортепиано XI",
+    caption: "Карлхайнц Штокхаузен - Пьеса для фортепиано XI",
+  },
+  {
+    image: denisovSilhouettesImage,
+    alt: "Партитура Эдисона Денисова Силуэты",
+    caption:
+      "Эдисон Денисов «Силуэты» для флейты, 2-х фортепиано и ударных, IIч. «Людмила»",
+  },
+];
 
 function StyleGenresSection() {
   return (
@@ -44,6 +78,40 @@ function StyleGenresSection() {
           метод «микрополифонии» (где множество линий сливается в единый
           подвижный звуковой объект).
         </p>
+
+        <div className="min-w-0">
+          <Swiper
+            className="simple-image-carousel"
+            modules={[Navigation, Keyboard, A11y]}
+            loop
+            slidesPerView={1}
+            spaceBetween={16}
+            navigation
+            keyboard={{ enabled: true }}
+            a11y={{
+              prevSlideMessage: "Предыдущий слайд",
+              nextSlideMessage: "Следующий слайд",
+            }}
+          >
+            {SCORE_SLIDES.map(({ image, alt, caption }) => (
+              <SwiperSlide key={caption}>
+                <figure className="min-w-0">
+                  <div className="mx-auto flex h-72 w-fit max-w-full items-center justify-center overflow-hidden rounded-[18px] border border-white/10 bg-black/10 sm:h-96 lg:h-[30rem]">
+                    <img
+                      src={image}
+                      alt={alt}
+                      loading="lazy"
+                      className="h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-center text-sm leading-6 text-white/38">
+                    {caption}
+                  </figcaption>
+                </figure>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
         <p>
           В целом музыкальный язык эпохи опирался на сложную систему
