@@ -89,9 +89,7 @@ function GenreFateSection() {
       </p>
 
       <h2 className="mt-3 max-w-[26ch] text-3xl leading-tight text-white sm:text-[2.1rem]">
-        Судьба некоторых жанров:{" "}
-        <DictionaryLink slug="simfoniya">симфония</DictionaryLink>, театр, опера,
-        балет
+        Судьба некоторых жанров: симфония, театр, опера, балет
       </h2>
 
       <div className="mt-7 grid gap-5 text-base leading-8 text-white/68">
