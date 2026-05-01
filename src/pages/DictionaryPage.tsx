@@ -43,9 +43,7 @@ function DictionaryPage({ selectedSlug }: Props) {
             getEntrySearchValue(entry).includes(normalizedSearch),
           );
 
-    return [...entries].sort((a, b) =>
-      a.title.localeCompare(b.title, "ru-RU"),
-    );
+    return [...entries].sort((a, b) => a.title.localeCompare(b.title, "ru-RU"));
   }, [search]);
 
   const groupedEntries = useMemo(
@@ -75,7 +73,7 @@ function DictionaryPage({ selectedSlug }: Props) {
           </h2>
           <p className="mt-5 max-w-[62ch] text-lg leading-8 text-ink/72">
             Краткие определения направлений и понятий, которые помогают читать
-            материалы об авангарде, модернизме и музыкальной культуре XX века.
+            материалы об авангарде и музыкальной культуре XX века.
           </p>
         </div>
 
@@ -93,44 +91,49 @@ function DictionaryPage({ selectedSlug }: Props) {
       </div>
 
       <div className="mt-9 grid gap-8">
-        {Object.entries(groupedEntries).sort(([a], [b]) => a.localeCompare(b, "ru-RU")).map(([letter, entries]) => (
-          <section key={letter} aria-labelledby={`dictionary-letter-${letter}`}>
-            <h3
-              id={`dictionary-letter-${letter}`}
-              className="border-b border-main/10 pb-3 text-5xl leading-none text-accent/78"
+        {Object.entries(groupedEntries)
+          .sort(([a], [b]) => a.localeCompare(b, "ru-RU"))
+          .map(([letter, entries]) => (
+            <section
+              key={letter}
+              aria-labelledby={`dictionary-letter-${letter}`}
             >
-              {letter}
-            </h3>
+              <h3
+                id={`dictionary-letter-${letter}`}
+                className="border-b border-main/10 pb-3 text-5xl leading-none text-accent/78"
+              >
+                {letter}
+              </h3>
 
-            <div className="mt-5 grid gap-4">
-              {entries.map((entry) => {
-                const isSelected = entry.slug === selectedSlug;
+              <div className="mt-5 grid gap-4">
+                {entries.map((entry) => {
+                  const isSelected = entry.slug === selectedSlug;
 
-                return (
-                  <article
-                    key={entry.slug}
-                    id={entry.slug}
-                    className={`scroll-mt-8 rounded-[20px] border p-5 transition-all duration-300 ${
-                      isSelected
-                        ? "border-accent/45 bg-accent/8 shadow-[0_16px_40px_rgba(134,0,0,0.10)]"
-                        : "border-main/10 bg-main/[0.035]"
-                    }`}
-                  >
-                    <Link
-                      to={`/dictionary?word=${encodeURIComponent(entry.slug)}`}
-                      className="text-left text-2xl leading-tight text-main transition-colors hover:text-accent"
+                  return (
+                    <article
+                      key={entry.slug}
+                      id={entry.slug}
+                      className={`scroll-mt-8 rounded-[20px] border p-5 transition-all duration-300 ${
+                        isSelected
+                          ? "border-accent/45 bg-accent/8 shadow-[0_16px_40px_rgba(134,0,0,0.10)]"
+                          : "border-main/10 bg-main/[0.035]"
+                      }`}
                     >
-                      {entry.title}
-                    </Link>
-                    <p className="mt-3 max-w-[72ch] text-base leading-7 text-ink/70">
-                      {entry.description}
-                    </p>
-                  </article>
-                );
-              })}
-            </div>
-          </section>
-        ))}
+                      <Link
+                        to={`/dictionary?word=${encodeURIComponent(entry.slug)}`}
+                        className="text-left text-2xl leading-tight text-main transition-colors hover:text-accent"
+                      >
+                        {entry.title}
+                      </Link>
+                      <p className="mt-3 max-w-[72ch] text-base leading-7 text-ink/70">
+                        {entry.description}
+                      </p>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
 
         {filteredEntries.length === 0 && (
           <p className="rounded-[20px] border border-main/10 bg-main/5 p-5 text-base text-ink/62">

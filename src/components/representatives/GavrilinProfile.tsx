@@ -1,4 +1,5 @@
 import gavrilinImage from "../../assets/representatives/gavrilin.jpg";
+import DictionaryLink from "../DictionaryLink";
 import RepresentativeProfileLayout from "./RepresentativeProfileLayout";
 
 function GavrilinProfile({ onBack }: { onBack: () => void }) {
@@ -97,7 +98,8 @@ function GavrilinProfile({ onBack }: { onBack: () => void }) {
             (в частности, по Псковской земле), которые композитор называл
             «возвращением в детство». Его язык глубоко народен: он мастерски
             сочетал «говор деревенских людей» с достижениями музыкальной
-            классики и даже «низкими» бытовыми жанрами – мещанским романсом,
+            классики и даже «низкими» бытовыми жанрами – мещанским{" "}
+            <DictionaryLink slug="romans">романсом</DictionaryLink>,
             частушкой.
           </p>
           <p className="text-base leading-7 text-ink/72">

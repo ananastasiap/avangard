@@ -1,5 +1,6 @@
 import { A11y, Keyboard, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import DictionaryLink from "../DictionaryLink";
 import avosAndYunonaImage from "../../assets/pictures/avosandynona.webp";
 import crazyNotesImage from "../../assets/pictures/crazynotes.webp";
 import kareninaImage from "../../assets/pictures/karenina.webp";
@@ -88,7 +89,9 @@ function GenreFateSection() {
       </p>
 
       <h2 className="mt-3 max-w-[26ch] text-3xl leading-tight text-white sm:text-[2.1rem]">
-        Судьба некоторых жанров: симфония, театр, опера, балет
+        Судьба некоторых жанров:{" "}
+        <DictionaryLink slug="simfoniya">симфония</DictionaryLink>, театр, опера,
+        балет
       </h2>
 
       <div className="mt-7 grid gap-5 text-base leading-8 text-white/68">
@@ -126,9 +129,14 @@ function GenreFateSection() {
               <em> – сохранение традиции большой симфонии</em>
             </strong>{" "}
             (Г. Попов, А. Локшин, Н. Пейко, В. Салманов и др.), продолжение
-            традиций русского эпического и лирико-драматического программного
-            симфонизма (Б. Чайковский, автор эпико-драматической одночастной
-            «Севастопольской симфонии», симфонических поэм «Ветер Сибири»,
+            традиций русского эпического и лирико-драматического программного{" "}
+            <DictionaryLink slug="simfonizm">симфонизма</DictionaryLink> (Б.
+            Чайковский, автор эпико-драматической одночастной «Севастопольской
+            симфонии»,{" "}
+            <DictionaryLink slug="simfonicheskaya-poema">
+              симфонических поэм
+            </DictionaryLink>{" "}
+            «Ветер Сибири»,
             «Подросток», многочастной симфонии «Музыка для оркестра).
           </li>
           <li>
@@ -202,7 +210,8 @@ function GenreFateSection() {
             . Например, Шнитке в Четвертом концерте для скрипки практикует так
             называемые «визуальные каденции». В концертах Щедрина и Эшпая
             сочетается классическая и легкожанровая стилистика. Денисов
-            использует приемы аллюзии и коллажа.
+            использует приемы аллюзии и{" "}
+            <DictionaryLink slug="kollazh">коллажа</DictionaryLink>.
           </li>
         </ol>
 
@@ -273,7 +282,8 @@ function GenreFateSection() {
           В XX веке композиторы начали активно отходить от традиционных форм,
           отдавая предпочтение <strong>жанровому эксперименту</strong> и
           созданию <strong>гибридных, синтетических спектаклей,</strong>{" "}
-          прибегать к условной стилизации, либо искать пути сугубо
+          прибегать к условной{" "}
+          <DictionaryLink slug="stilizatsiya">стилизации</DictionaryLink>, либо искать пути сугубо
           индивидуального обращения с жанровыми моделями прошлого. Оперный жанр
           стал подвижной системой, объединяющей музыку, танец, пантомиму и
           элементы драматического театра, что ярко проявилось в творчестве И.

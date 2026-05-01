@@ -36,7 +36,7 @@ function AvangardSection() {
           <em>(Jugendstil)</em> или <strong>«стиль Сецессиона»</strong>{" "}
           <em>(Sezessionstil)</em>. Несмотря на общее латинское происхождение (
           <em>modernus</em> – современный), модерн как конкретный стиль следует
-          отличать от <strong>модернизма</strong> – более широкой категории,
+          отличать от <DictionaryLink slug="modernizm">модернизма</DictionaryLink> – более широкой категории,
           объединившей инновационные течения всего XX века.
         </p>
 
@@ -104,16 +104,12 @@ function AvangardSection() {
           <DictionaryLink slug="ekspressionizm">экспрессионизм</DictionaryLink>
           ,{" "}
           <DictionaryLink slug="puantilizm">пуантилизм</DictionaryLink>,{" "}
-          <DictionaryLink slug="serializm">сериализм</DictionaryLink>,{" "}
-          <DictionaryLink slug="modern">модерн</DictionaryLink>, а также
+          сериализм,{" "}
+          модерн, а также
           техническая музыка (
           <DictionaryLink slug="konkretnaya-muzyka">конкретная</DictionaryLink>,{" "}
           <DictionaryLink slug="elektronnaya-muzyka">электронная</DictionaryLink>
-          ,{" "}
-          <DictionaryLink slug="magnitofonnaya-muzyka">
-            магнитофонная
-          </DictionaryLink>
-          ). Изменилась и система жанров: появились новые трактовки, в практику
+          , магнитофонная). Изменилась и система жанров: появились новые трактовки, в практику
           вернулись забытые жанры и пришли совершенно новые. Чтобы избежать
           путаницы, следует точно разделять термины, обозначающие
           мировоззренческие тенденции и временные периоды в развитии искусства.
